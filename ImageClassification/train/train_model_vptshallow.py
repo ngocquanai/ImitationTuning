@@ -100,9 +100,9 @@ if __name__ == '__main__':
     parser.add_argument('--eval', type=str, default='True')
     parser.add_argument('--dpr', type=float, default=0.1)
     parser.add_argument('--topN', type=int, default=None)
-    parser.add_argument('--model', type=str, default='vit_base_patch16_224_in21k_lora')
+    parser.add_argument('--model', type=str, default='vit_base_patch16_224_in21k_vptshallow')
     parser.add_argument('--model_checkpoint', type=str, default='./released_models/ViT-B_16.npz')
-    parser.add_argument('--model_type', type=str, default='vit_lora')
+    parser.add_argument('--model_type', type=str, default='vit_vptshallow')
     parser.add_argument('--task', type=str, default='vtab')
     parser.add_argument('--dataset', type=str, default='cifar')
     parser.add_argument('--tuning_mode', type=str, default='lora')
@@ -137,7 +137,7 @@ if __name__ == '__main__':
         train_aug = False
     
     if args.task == 'vtab':
-        from vtab import *
+        from dataloader.vtab import *
         basedir = '../vtab-1k'
         train_dl, test_dl = get_data(basedir, args.dataset, logger, evaluate=evalflag, train_aug=train_aug, batch_size=config['batch_size'])
 

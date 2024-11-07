@@ -38,7 +38,8 @@ def load(model_type, task, name, model):
     return model
 
 def get_config(model_type, task, dataset_name):
-    with open('Parameter-Efficient-Transfer-Learning-Benchmark/ImageClassification/configs/%s/%s/%s.yaml'%(model_type, task, dataset_name), 'r') as f:
+    print('/home/ubuntu/ImitationTuning/ImageClassification/configs/%s/%s/%s.yaml'%(model_type, task, dataset_name))
+    with open('/home/ubuntu/ImitationTuning/ImageClassification/configs/%s/%s/%s.yaml'%(model_type, task, dataset_name), 'r') as f:
         config = yaml.load(f, Loader=yaml.FullLoader)
     return config
 
